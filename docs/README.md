@@ -112,8 +112,7 @@ END_VAR
 
 ## Class
 
-In the IEC standard there is no keyword for Class, instead you must use a Function Block with the attributes shown below.  
-You should decorate your classes with the no_explicit_call attribute to prevent if from being used as a standard IEC Function Block.
+In the IEC standard, there is a keyword for "Class". Favour the use of CLASS POUs whenever possible. If you are unable to define a CLASS POU, consider using a Function Block with the attributes outlined below. Ensure you decorate your classes with the no_explicit_call attribute to prevent them from being used as standard IEC Function Blocks.
 
 ```example
 {attribute 'no_explicit_call' := 'This FB is a CLASS and must be accessed using methods or properties'}
@@ -128,6 +127,7 @@ You should decorate your classes with the no_explicit_call attribute to prevent 
 Always use **PascalCase** for class names. You should use noun or noun phrase for class names. Do not use prefixes. An underscore may be used if the class is typed and it assists with overall the readability.
 
 ```example
+{attribute 'no_explicit_call' := 'This FB is a CLASS and must be accessed using methods or properties'}
 FUNCTION_BLOCK AnalogValue_LREAL EXTENDS AnalogValue
 // VAR_INPUT, VAR_OUTPUT and VAR_IN_OUT is not permitted here.
 VAR
@@ -139,7 +139,7 @@ END_VAR
 
 Private variables must be **camelCase**.
 
-Private variables which share the same name as a Property must be prefixed with an underscore. Try to avoid this type of name clash where possible.
+If a private variable shares the same name as a Property, prefix it with an underscore. However, try to avoid such name clashes whenever possible.
 
 ### Example
 
@@ -155,13 +155,13 @@ END_VAR
 ```
 
 ```body
-// The body of a class must not be used for code.
-// Cyclic code should be called from a method if needed.
+// The body of a class should not contain code.
+// Cyclic code, if necessary, should be executed from a method.
 ```
 
 ## Methods
 
-Classes may use methods. Methods in a Function Block or Program should be avoided at all costs.
+Only Classes or Function Blocks defined with ```no_explicit_call``` should contain methods. Refrain from defining methods within a Function Block or Program.
 
 Methods, like classes should have one reason to exist. They should do one job and do it well.
 
