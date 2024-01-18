@@ -4,8 +4,6 @@
 
 ## Opening Statement
 
-This coding convention has been created to help keep our code base clean and tidy. It will act as a guide for those of you who have not settled on a standard, and will impose rules on those of you who wish to contribute.
+To prevent duplication and double handling, this repo has moved to the mobject.org project.
 
-## Documentation
-
-The documentation for this project can be found [here](https://benhar-dev.github.io/coding-convention/#/).
+The documentation for this project can be found [here](https://mobject-dev-team.github.io/mobject-coding-convention/#/).
